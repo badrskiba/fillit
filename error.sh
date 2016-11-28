@@ -19,4 +19,3 @@ make re
 ./fillit map/tetri_error18
 ./fillit map/tetri1
 ./fillit map/tetriminos
-

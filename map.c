@@ -94,7 +94,7 @@ int		place_if(t_lst *lst_tetri, t_map *map,int x, int y)
 		{
 			if (lst_tetri->tetri[j][i] == '#' && map->tab[y][x] != '.')
 			{
-				printf("%d",909);
+	//			printf("%d",909);
 				return (0);
 			}
 			i++;

@@ -17,10 +17,10 @@ int		solu_map(t_map *map, t_lst *lst_tetri)
 		x = 0;
 		while (x < map->size)
 		{
-			printf("%d\n",x);
+			//printf("%d\n",x);
 			if(place_if(tmp, map, x, y))
 			{
-				if(solu_map(map, lst_tetri->next))
+				if(solu_map(map, lst_tetri->next) == 1)
 					return (1);
 			}
 			x++;
@@ -37,6 +37,7 @@ int		ft_racine(int n)
 	size = 1;
 	while (size * size < n)
 		size++;
+
 	return (size);
 }
 
@@ -57,16 +58,22 @@ t_map		*solve(t_lst *lst_tetri)
 {
 	t_map	*map;
 	int		size;
+	int	s;
 
 	map = NULL;
 	size = ft_racine(ft_lst_count_ele(lst_tetri) * 4);
 	map = new_map(size);
+	write(1, "1", 1);
+	s = solu_map(map, lst_tetri);
+	printf("s = %d\n" , s);
+	/*
 	while (solu_map(map, lst_tetri) == 0)
 	{
+		write(1, "1", 1);
 		size++;
-		free_map(map);
-		printf("%d",100);
+		write(1 ,"1", 1);
+	//	free(map);
 		map = new_map(size);
-	}
+	}*/
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: lbenamer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 23:11:52 by lbenamer          #+#    #+#             */
-/*   Updated: 2016/11/27 06:06:06 by lbenamer         ###   ########.fr       */
+/*   Updated: 2016/11/28 19:51:35 by bskiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,12 +125,13 @@ int		main(int ac, char **av)
 			else
 			{
 				ft_lst_putparam(lst_tetri);
+				map = solve(lst_tetri);
 				ft_print_list(lst_tetri);
+				print_map(map);
 				write(1, "\n", 1);
+			
 			}
 		}
 	}
-	map = solve(lst_tetri);
-	print_map(map);
 	return 0;
 }
