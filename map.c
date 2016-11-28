@@ -33,13 +33,15 @@ void	place(t_lst *lst_tetri, t_map *map, int x, int y, char name)
 
 	i = 0;
 	j = 0;
-	while (j < lst_tetri->h)
+	while (lst_tetri->tetri[j])
 	{
 		i = 0;
-		while (i < lst_tetri->l)
+		while (lst_tetri->tetri[j][i])
 		{
-			if( lst_tetri->tetri[j][i] == '#')
-				map->tab[y +j][x + i] = name;
+			if( lst_tetri->tetri[j][i] == '#') //&& map->tab[y][x] == '.')
+			{
+				map->tab[y + j][x + i] = name;
+			}
 			i++;
 		}
 		j++;
@@ -49,12 +51,19 @@ void	place(t_lst *lst_tetri, t_map *map, int x, int y, char name)
 void	free_map(t_map *map)
 {
 	int i;
+	int j;
 
 	i = 0;
-	while (i < map->size)
+	j = 0;
+	while (map->tab[j])
 	{
-		ft_memdel((void**)map->tab[i]);
-		i++;
+		i = 0;
+		while (map ->tab[j][i])
+		{
+			map->tab[j][i] = '.';
+			i++;
+		}
+		j++;
 	}
 }
 
@@ -78,13 +87,16 @@ int		place_if(t_lst *lst_tetri, t_map *map,int x, int y)
 
 	j = 0;
 	i = 0;
-	while(j < lst_tetri-> h)
+	while(j < map->size)
 	{
 		i = 0;
-		while(i < lst_tetri-> l)
+		while(i < map->size)
 		{
-			if (lst_tetri->tetri[j][i] == '#' && map->tab[y+j][x+i] != '.')
+			if (lst_tetri->tetri[j][i] == '#' && map->tab[y][x] != '.')
+			{
+				printf("%d",909);
 				return (0);
+			}
 			i++;
 		}
 		j++;

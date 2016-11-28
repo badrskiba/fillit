@@ -131,6 +131,6 @@ int		main(int ac, char **av)
 		}
 	}
 	map = solve(lst_tetri);
-//	print_map(map);
+	print_map(map);
 	return 0;
 }

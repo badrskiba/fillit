@@ -12,11 +12,12 @@ int		solu_map(t_map *map, t_lst *lst_tetri)
 		return (1);
 	x = 0;
 	y = 0;
-	while (y <= map->size - lst_tetri->h + 1)
+	while (y < map->size)
 	{
 		x = 0;
-		while (x <= map->size - lst_tetri->l + 1)
+		while (x < map->size)
 		{
+			printf("%d\n",x);
 			if(place_if(tmp, map, x, y))
 			{
 				if(solu_map(map, lst_tetri->next))
@@ -63,7 +64,8 @@ t_map		*solve(t_lst *lst_tetri)
 	while (solu_map(map, lst_tetri) == 0)
 	{
 		size++;
-	//	free_map(map);
+		free_map(map);
+		printf("%d",100);
 		map = new_map(size);
 	}
 	return (map);
